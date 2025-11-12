@@ -20,9 +20,8 @@ jobs:
       - name: Run Smoke Test
         run: k6 run scenarios/smoke.js --out json=results/smoke.json
 
-      # Puedes agregar steps para guardar el archivo de resultados como artefacto
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: k6-smoke-results
           path: results/smoke.json
