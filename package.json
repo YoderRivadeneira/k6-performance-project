@@ -1,0 +1,11 @@
+{
+  "name": "k6-performance-project",
+  "version": "1.0.0",
+  "description": "Petstore API performance testing with k6",
+  "scripts": {
+    "smoke": "k6 run scenarios/smoke.js",
+    "stress": "k6 run scenarios/stress.js",
+    "smoke-report": "./k6 html --summary-export=results/smoke-summary.json --out reports/smoke-report.html",
+    "stress-report": "./k6 html --summary-export=results/stress-summary.json --out reports/stress-report.html"
+  }
+}

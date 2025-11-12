@@ -1,0 +1,28 @@
+name: K6 Performance Test
+
+on:
+  push:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  k6-perf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install k6
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y k6
+
+      - name: Run Smoke Test
+        run: k6 run scenarios/smoke.js --out json=results/smoke.json
+
+      # Puedes agregar steps para guardar el archivo de resultados como artefacto
+      - name: Upload results
+        uses: actions/upload-artifact@v3
+        with:
+          name: k6-smoke-results
+          path: results/smoke.json
