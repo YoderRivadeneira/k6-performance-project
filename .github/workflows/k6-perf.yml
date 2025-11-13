@@ -5,6 +5,7 @@ on:
     branches: ["main", "master"]
   workflow_dispatch:
 
+
 jobs:
   k6-perf:
     runs-on: ubuntu-latest
